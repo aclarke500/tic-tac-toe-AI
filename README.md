@@ -25,10 +25,8 @@ An AI bot that analyzes all game states in order to make the best move. I haven'
         then the computer needs to go in the top right. If a block needs to be made, the computer makes that move and
         doesn't use the second part of the algorithim since blocking means the computer is at risk of a moving state.</p>
     <h4><b>Deciding</b></h4>
-
-    <p>If a block does not need to be made, the algorithim needs to make a guess at <b>which move maximizes the
-            probability of a win state.</b><br>
-        This is calculated by taking a game state, and looking at all possible outcomes from there. The number of
-        possible outcomes where the computer wins divided by all the possible outcomes is the probability of a win.<br>
-        When its the computers turn, it looks at every blank square and calculates the probability of a win if it moves
-        there. It moves on the square with the highest probability.</p>
+    <p>If a block does not need to be made, the algorithim needs to make a guess at <b>which move maximizes the probability of a win state.<br> 
+    This is calculated by taking a game state, and looking at all possible outcomes from there. The number of
+    possible outcomes where the computer wins divided by all the possible outcomes is the probability of a win.<br> When its the computers turn, it looks at every blank square and calculates the probability of a win if it moves there. It moves on the square with the highest probability.
+</p>
+    
