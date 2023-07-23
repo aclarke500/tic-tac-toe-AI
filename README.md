@@ -10,7 +10,6 @@ An AI bot that analyzes all game states in order to make the best move. I haven'
         <li>Use 't', 'm', or 'b' as your first character to indicate top, middle or bottom</li>
         <li>Use 'l' 'm' or 'r' as your second character to indicate left, middle, or right</li>
         <li>For example, to place your move in the top left corner, type 'tl'</li>
-        <li>If you don't enter a valid move, the game will halt.</li>
     </ul>
     <h2>File Structure: </h2>
     <p>game.py contains a while loop for the game.</p>

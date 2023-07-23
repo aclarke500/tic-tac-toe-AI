@@ -14,6 +14,8 @@ game_board = {
 }
 
 game_over = False
+
+
 def get_game_state(board):
     game_state = game_is_over(game_board)
     if game_state == 'X':
@@ -30,18 +32,27 @@ def get_game_state(board):
         print('********')
         return False
 
+
 print_board(game_board)
 x_turn = True
 while not game_over:
     if x_turn:
-        print ("Options are: tl, tm, tr, ml, mm, mr, bl, bm, br")
-        move = input("Where would you like to move? ")
-        if move[0] in ['t', 'm', 'b'] and move[1] in ['l', 'm', 'r']:
-            game_board[move] = "X"
-            x_turn = False
-        else:
-            game_over = True
-    else: # computer's turn
+        print("Options are: tl, tm, tr, ml, mm, mr, bl, bm, br")
+        valid_move = False
+        while not valid_move:
+            move = input("Where would you like to move? ")
+            if len(move) == 2 and move[0] in ['t', 'm', 'b'] and move[1] in ['l', 'm', 'r']:
+                if game_board[move] == "b":
+                    valid_move = True
+                    game_board[move] = "X"
+                    x_turn = False
+                else:
+                    print("That spot is already taken!")
+                    print_board(game_board)
+            else:
+                print("That is not a valid move!")
+                print_board(game_board)
+    else:  # computer's turn
         # get list of all spots that are blank
         must_block = needs_to_block(game_board)
         if must_block:
@@ -49,28 +60,28 @@ while not game_over:
             x_turn = True
         else:
             blank_spots = []
-            move_probability = {} # key is move, value is probability of winning
+            move_probability = {}  # key is move, value is probability of winning
 
             for key in game_board:
-                if game_board[key] == 'b': # blank means we COULD move there
+                if game_board[key] == 'b':  # blank means we COULD move there
                     blank_spots.append(key)
 
             for b in blank_spots:
-                temp_board = {} # create new board to not modify existing
+                temp_board = {}  # create new board to not modify existing
                 for key in game_board:
                     if key == b:
                         temp_board[key] = 'O'
                     else:
                         temp_board[key] = game_board[key]
                 move_probability[b] = probability_of_winning(temp_board)
-                
+
             # check all moves to see which has highest probability of leading to win state
-            optimal_move = ['', 0] # [move, probability]
+            optimal_move = ['', 0]  # [move, probability]
             for key in move_probability:
                 if move_probability[key] >= optimal_move[1]:
                     optimal_move = [key, move_probability[key]]
-            game_board[optimal_move[0]] = 'O' # make the move
+            game_board[optimal_move[0]] = 'O'  # make the move
         x_turn = True
         game_over = get_game_state(game_board)
-print_board(game_board)    
-print ('Game Over')
+print_board(game_board)
+print('Game Over')
