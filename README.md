@@ -18,7 +18,9 @@ An AI bot that analyzes all game states in order to make the best move. I haven'
     <h3>The game: </h3>
     <p>game.py contains a loop for the game, getting the human's move, then the computer decides a move, and repeats till an end state is reached.</p>
     <h3>The AI: </h3>
-    <p>There are 2 parts to the computers move, <b>blocking</b> and <b>deciding</b>.</p>
+    <p>There are 2 parts to the computers move,<b>winning</b>, <b>blocking</b>, and <b>deciding</b>.</p>
+    <h4><b>Winning</b></h4>
+    <p>First, the computer checks if it can make a move to win the game. If it can win the game, it makes that move. It checks all possible winning combos to see if 2 have Os and the third is blank.</p>
     <h4><b>Blocking</b></h4>
     <p>The first thing the AI does is consider if it needs to block a move. If, for instance, the top row is is : "XXb",
         then the computer needs to go in the top right. If a block needs to be made, the computer makes that move and
