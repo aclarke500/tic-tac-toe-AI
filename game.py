@@ -1,4 +1,4 @@
-from game_library import game_is_over, print_board, get_game_state, get_move
+from game_library import game_is_over, print_board, get_game_state, get_move, get_game_state
 from ComputerMove import get_computer_move
 # global vars
 game_board = { # start with all blank board
@@ -14,30 +14,6 @@ game_board = { # start with all blank board
 }
 game_over = False # game is not over 
 x_turn = True # x goes
-
-def get_game_state(board):
-    """
-    Returns game state and prints message if game is over
-    Returns:
-    bool: True if game is over, False if game is not over
-    params:
-    board: dict of board state (of the form defined above)
-    """
-    game_state = game_is_over(board)
-    if game_state == 'X':
-        print('X wins!')
-        return True
-    elif game_state == 'O':
-        print('O wins!')
-        return True
-    elif game_state == 'Tie':
-        print('Cats game!')
-        return True
-    else:
-        print_board(game_board)
-        print('********')
-        return False
-
 
 def game():
     """
