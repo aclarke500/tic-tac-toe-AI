@@ -25,6 +25,9 @@ def game():
     while not game_over:
         if x_turn:
             move = get_move(game_board) # get move from user
+            if move == 'q':
+                game_over = True
+                break
             game_board[move] = "X"
             x_turn = False
 
@@ -34,7 +37,6 @@ def game():
             x_turn = True
             game_over = get_game_state(game_board)
     print_board(game_board)
-    print('Game Over')
-    
+    print('Game Over')  
 
 game()

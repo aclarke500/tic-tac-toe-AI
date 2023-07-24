@@ -39,9 +39,11 @@ def get_move(board):
     str: move
     """
     board = get_copy_of_board(board)
-    print("Options are: tl, tm, tr, ml, mm, mr, bl, bm, br")
+    print("Options are: tl, tm, tr, ml, mm, mr, bl, bm, br or q to quit")
     while True: # loop until we get a valid move
         move = input("Where would you like to move? ")
+        if move == 'q': # quit
+            return move
         if len(move) == 2 and move[0] in ['t', 'm', 'b'] and move[1] in ['l', 'm', 'r']:
             if board[move] == "b":
                 return move
@@ -61,6 +63,7 @@ def get_game_state(board):
     params:
     board: dict of board state (of the form defined above)
     """
+    board = get_copy_of_board(board)
     game_state = game_is_over(board)
     if game_state == 'X':
         print('X wins!')
@@ -72,7 +75,7 @@ def get_game_state(board):
         print('Cats game!')
         return True
     else:
-        print_board(game_board)
+        print_board(board)
         print('********')
         return False
 

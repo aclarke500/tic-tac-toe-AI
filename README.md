@@ -10,10 +10,12 @@ An AI bot that analyzes all game states in order to make the best move. I haven'
         <li>Use 't', 'm', or 'b' as your first character to indicate top, middle or bottom</li>
         <li>Use 'l' 'm' or 'r' as your second character to indicate left, middle, or right</li>
         <li>For example, to place your move in the top left corner, type 'tl'</li>
+        <li>Enter 'q' to quit.</li>
     </ul>
     <h2>File Structure: </h2>
     <p>game.py contains a while loop for the game.</p>
     <p>game_library.py shockingly is a library for my functions.</p>
+    <p>ComputerMove.py is a library for all of functions determining the computers move.</p>
     <h2>How it works:</h2>
     <h3>The game: </h3>
     <p>game.py contains a loop for the game, getting the human's move, then the computer decides a move, and repeats till an end state is reached.</p>
